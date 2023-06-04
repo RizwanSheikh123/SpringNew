@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="writer1" class="com.map.dependent.bean.Writer">
+		<constructor-arg value="111"></constructor-arg>
+		<constructor-arg value="Mangesh"></constructor-arg>
+	</bean>
+	
+	<bean id="author2" class="com.map.dependent.bean.Author">
+		<constructor-arg value="112"></constructor-arg>
+		<constructor-arg value="Dipesh"></constructor-arg>
+	</bean>
+	
+	<bean id="author1" class="com.map.dependent.bean.Author">
+		<constructor-arg value="544"></constructor-arg>
+		<constructor-arg value="Tanveer"></constructor-arg>
+	</bean>
+	
+	<bean id="book" class="com.map.dependent.bean.Book">
+		<constructor-arg value="4566"></constructor-arg>
+		<constructor-arg value="Java First"></constructor-arg>
+		<constructor-arg>
+			<map>
+				<entry key-ref="author1" value-ref="writer1"></entry>
+				<entry key-ref="author2" value-ref="writer1"></entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+</beans>
