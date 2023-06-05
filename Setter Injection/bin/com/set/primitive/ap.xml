@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="vendor" class="com.set.primitive.bean.Vendor">
+		<property name="vendorId" value="101"></property>
+		<property name="vendorName" value="Rizwan"></property>
+		<property name="customers">
+			<set>
+				<value>Rahul</value>
+				<value>Mukesh</value>
+				<value>Dk</value>
+			</set>
+		</property>
+	</bean>
+
+</beans>

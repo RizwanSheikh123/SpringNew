@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="writer1" class="com.map.dependent.bean.Writer">
+		<property name="writerId" value="111"></property>
+		<property name="writerName" value="Mangesh"></property>
+	</bean>
+	
+	<bean id="author2" class="com.map.dependent.bean.Author">
+		<property name="authorId" value="112"></property>
+		<property name="authorName" value="Dipesh"></property>
+	</bean>
+	
+	<bean id="author1" class="com.map.dependent.bean.Author">
+		<property name="authorId" value="544"></property>
+		<property name="authorName" value="Tanveer"></property>
+	</bean>
+	
+	<bean id="book" class="com.map.dependent.bean.Book">
+		<property name="bookId" value="4566"></property>
+		<property name="bookName" value="Java First"></property>
+		<property name="details">
+			<map>
+				<entry key-ref="author1" value-ref="writer1"></entry>
+				<entry key-ref="author2" value-ref="writer1"></entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>
