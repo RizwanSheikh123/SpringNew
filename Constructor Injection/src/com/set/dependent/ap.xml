@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="customer1" class="com.set.dependent.bean.Customer">
+		<constructor-arg value="501" type="int"></constructor-arg>
+		<constructor-arg value="Rahul"></constructor-arg>
+		<constructor-arg value="Indore"></constructor-arg>
+	</bean>
+
+	<bean id="customer2" class="com.set.dependent.bean.Customer">
+		<constructor-arg value="502" type="int"></constructor-arg>
+		<constructor-arg value="Rajat"></constructor-arg>
+		<constructor-arg value="Ujjain"></constructor-arg>
+	</bean>
+	
+	<bean id="vendor" class="com.set.dependent.bean.Vendor">
+		<constructor-arg value="101" type="int"></constructor-arg>
+		<constructor-arg value="Rizwan"></constructor-arg>
+		<constructor-arg>
+			<set>
+				<ref bean="customer1"/>
+				<ref bean="customer2"/>
+			</set>
+		</constructor-arg>
+	</bean>
+
+</beans>
